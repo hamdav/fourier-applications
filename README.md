@@ -18,11 +18,15 @@ with initial conditions either
 2. u(x,0) = 0, u_t (x,0) = f(x).
 
 and the two boundry conditions are
-    i. u(0,t) = 0 or
-    ii. u_t (0,t) = 0
+
+    i) u(0,t) = 0 or
+
+    ii) u_t (0,t) = 0
 
 and
+
     i. u(l,t) = 0 or
+
     ii.u_t (l,t) = 0.
 
 If the initial conditions are 1.
