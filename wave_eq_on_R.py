@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
 PI = 3.14159265358979
-c = 0.3
+c = 1
 
 fig,ax = plt.subplots()
 
@@ -33,7 +33,7 @@ xs = np.linspace(startx,endx,n)
     # Spikes
 #f = lambda xs: np.where(np.abs(np.mod(xs,4)-2)-1.5 > 0, np.abs(np.mod(xs,4)-2)-1.5, np.zeros(xs.shape))
     # Photon
-f = lambda xs: np.exp(-xs**2)*np.cos(10*xs)
+f = lambda xs: 0.5*np.exp(-xs**2)*np.cos(10*xs)
 
 
 # Define ufcn based on the initial condition
@@ -46,7 +46,7 @@ ufcn = lambda t: f(xs-c*t) + f(xs+c*t)
 
 us = ufcn(0)
 
-line, = ax.plot(xs,us,'k')
+line, = ax.plot(xs,us,'w')
 ax.set_ylim([-1,1])
 
 def animate(t):
