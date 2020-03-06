@@ -19,15 +19,15 @@ with initial conditions either
 
 and the two boundry conditions are
 
-    i) u(0,t) = 0 or
+i) u(0,t) = 0 or
 
-    ii) u_t (0,t) = 0
+ii) u_t (0,t) = 0
 
 and
 
-    i. u(l,t) = 0 or
+i) u(l,t) = 0 or
 
-    ii.u_t (l,t) = 0.
+ii) u_t (l,t) = 0.
 
 If the initial conditions are 1.
 Then u(x,0) = \sum_n b_n sin(n π x /l) = f(x). 
