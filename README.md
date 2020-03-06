@@ -14,8 +14,8 @@ u(x,0) = 0, u_t (x,0) = f(x).
 Creates an animation of the solution to the wave equation on the bounded interval [0,l],
 u_{tt} = c^2 u_{xx},
 with initial conditions either
-1. u(x,0) = f(x), u_t (x,0) = 0   , or
-2. u(x,0) = 0   , u_t (x,0) = f(x).
+1. u(x,0) = f(x), u_t (x,0) = 0, or
+2. u(x,0) = 0, u_t (x,0) = f(x).
 
 and the two boundry conditions are
 
@@ -29,11 +29,20 @@ i) u(l,t) = 0 or
 
 ii) u_t (l,t) = 0.
 
-If the initial conditions are 1.
-Then u(x,0) = \sum_n b_n sin(n π x /l) = f(x). 
-These b_n are the ones you need to calculate to create the plot. 
+If the initial conditions are 1,
+then 
+
+u(x,0) = \sum bn sin(n π x /l) = f(x) or 
+
+u(x,0) = \sum bn sin((n+1/2) π x/l) = f(x). 
+
+These bn are the ones you need to calculate to create the plot. 
 If on the other hand initial conditions are 2.
-Then u_t (x,0) = \sum_n b_n n π c / l * sin(n π x /l) = f(x). 
+Then 
+
+u_t (x,0) = \sum bn n π c / l * sin(n π x /l) = f(x) or 
+
+u_t (x,0) = \sum bn (n+1/2) π c/l * sin((n+1/2) π x/l) = f(x). 
 
 
 
