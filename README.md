@@ -16,9 +16,11 @@ u_{tt} = c^2 u_{xx},
 with initial conditions either
 1. u(x,0) = f(x), u_t (x,0) = 0, or
 2. u(x,0) = 0, u_t (x,0) = f(x).
+
 and the two boundry conditions are
     i. u(0,t) = 0 or
     ii. u_t (0,t) = 0
+
 and
     i. u(l,t) = 0 or
     ii.u_t (l,t) = 0.
