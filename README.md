@@ -14,8 +14,8 @@ u(x,0) = 0, u_t (x,0) = f(x).
 Creates an animation of the solution to the wave equation on the bounded interval [0,l],
 u_{tt} = c^2 u_{xx},
 with initial conditions either
-1. u(x,0) = f(x), u_t (x,0) = 0, or
-2. u(x,0) = 0, u_t (x,0) = f(x).
+1. u(x,0) = f(x), u_t (x,0) = 0   , or
+2. u(x,0) = 0   , u_t (x,0) = f(x).
 
 and the two boundry conditions are
 
