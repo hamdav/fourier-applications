@@ -32,17 +32,25 @@ ii) u_t (l,t) = 0.
 If the initial conditions are 1,
 then 
 
-u(x,0) = \sum bn sin(n π x /l) = f(x) or 
+    u(x,0) = \sum bn sin(n π x /l) = f(x) or 
 
-u(x,0) = \sum bn sin((n+1/2) π x/l) = f(x). 
+    u(x,0) = \sum bn sin((n+1/2) π x/l) = f(x) or
 
-These bn are the ones you need to calculate to create the plot. 
-If on the other hand initial conditions are 2.
-Then 
+    u(x,0) = \sum bn cos(n π x /l) = f(x) or 
 
-u_t (x,0) = \sum bn n π c / l * sin(n π x /l) = f(x) or 
+    u(x,0) = \sum bn cos((n+1/2) π x/l) = f(x). 
 
-u_t (x,0) = \sum bn (n+1/2) π c/l * sin((n+1/2) π x/l) = f(x). 
+If on the other hand initial conditions are 2, then 
 
+    u_t (x,0) = \sum bn n π c / l * sin(n π x /l) = f(x) or 
+
+    u_t (x,0) = \sum bn (n+1/2) π c/l * sin((n+1/2) π x/l) = f(x). 
+
+    u_t (x,0) = \sum bn n π c / l * cos(n π x /l) = f(x) or 
+
+    u_t (x,0) = \sum bn (n+1/2) π c/l * cos((n+1/2) π x/l) = f(x). 
+
+These bn are the ones you need to calculate to create the animation. 
+This should probably be done by expanding f(x) into a fourier series.
 
 
