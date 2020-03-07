@@ -44,6 +44,7 @@ ufcn = lambda t: f(xs-c*t) + f(xs+c*t)
     # Initial condition, u(x,0) = 0, d/dt u(x,0) = f'(x)
 #ufcn = lambda t: 0.5*(f(xs+c*t) - f(xs-c*t))
 
+# Create an animation
 us = ufcn(0)
 
 line, = ax.plot(xs,us,'w')
