@@ -2,7 +2,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-PI = 3.14159265358979
 c = 1
 l = 1
 
@@ -14,10 +13,10 @@ ns = np.array(range(1,100))
 
 
     # For u0(x) = abs(x/l-1/2)-1/2
-#bns = np.array([4*l/PI**2*(PI/(2*n)*np.cos(n*PI/2)-np.sin(n*PI/2)/n**2) if n%2==1 else 0 for n in ns])
+#bns = np.array([4*l/np.pi**2*(np.pi/(2*n)*np.cos(n*np.pi/2)-np.sin(n*np.pi/2)/n**2) if n%2==1 else 0 for n in ns])
 
     # For u0(x) = plucked att l/10
-#bns = -2/PI*(100/(9*PI)*np.sin(ns*PI/10)/ns**2)
+#bns = -2/np.pi*(100/(9*np.pi)*np.sin(ns*np.pi/10)/ns**2)
 
     # For u0(x) = sin(2*pi x/l)
 bns = 1*(ns==3)
@@ -25,18 +24,18 @@ bns = 1*(ns==3)
 
 # Define a function as a partial sum
     # If initial conditions are 1)
-T = lambda t: np.cos(c*ns*PI*t/l)
+T = lambda t: np.cos(c*ns*np.pi*t/l)
     # If initial conditions are 2)
-#T = lambda t: np.sin(c*ns*PI*t/l)
+#T = lambda t: np.sin(c*ns*np.pi*t/l)
 
     # If boundry conditions are i) and i)
-#X = lambda x: np.sin(ns*PI*x/l)
+#X = lambda x: np.sin(ns*np.pi*x/l)
     # If boundry conditions are i) and ii)
-#X = lambda x: np.sin((ns+1/2)*PI*x/l)
+#X = lambda x: np.sin((ns+1/2)*np.pi*x/l)
     # If boundry conditions are ii) and i)
-#X = lambda x: np.cos((ns+1/2)*PI*x/l)
+#X = lambda x: np.cos((ns+1/2)*np.pi*x/l)
     # If boundry conditions are ii) and ii)
-X = lambda x: np.cos(ns*PI*x/l)
+X = lambda x: np.cos(ns*np.pi*x/l)
 
 
 u = lambda x,t: sum(bns*T(t)*X(x))

@@ -2,10 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-PI = 3.14159265358979
 c = 1
 
-fig,ax = plt.subplots()
 
 startt = -10
 endt = 10
@@ -46,6 +44,8 @@ ufcn = lambda t: f(xs-c*t) + f(xs+c*t)
 
 # Create an animation
 us = ufcn(0)
+
+fig,ax = plt.subplots()
 
 line, = ax.plot(xs,us,'w')
 ax.set_ylim([-1,1])
