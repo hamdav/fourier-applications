@@ -35,7 +35,8 @@ anms = np.zeros((len(ns),len(ms)))
 
 
 
-f = lambda x,y: (x**2-x)*(y**2-y) 
+# In case x and y are vectors, f must return a matrix
+f = lambda xs,ys: np.exp(-100 * np.add.outer((xs-0.5)**2, (ys-0.5)**2))
 integralxs = np.linspace(0,1,100)
 integralys = np.linspace(0,1,100)
 anmfunc = lambda n, m: np.trapz(np.trapz(
@@ -47,7 +48,6 @@ for n in ns:
     for m in ms:
         anms[n][m] = anmfunc(n,m)
 
-print(f"Time taken for anms: {e-s}")
 
 def ufcn(t):
     Tnm = np.cos(np.pi*np.sqrt(np.add.outer(ns**2,ms**2))*t)
