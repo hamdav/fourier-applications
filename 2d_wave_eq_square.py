@@ -91,7 +91,7 @@ anim2 = FuncAnimation(fig2, animate, init_func=None, frames = len(times), interv
 Writer = animation.writers['imagemagick']
 writer = Writer(fps=15, bitrate=1800)
 
-anim2.save('2dwave.gif',writer=writer)
+anim2.save('2dwave_on_square.gif',writer=writer)
 
 # Do not show this figure, it is rather slow, instead look at the gif
 plt.close()
