@@ -1,13 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+import matplotlib.animation as animation
 
 c = 1
 
 
-startt = -10
-endt = 10
-n = 1000
+startt = -3
+endt = 3
+n = 200
 dt = (endt-startt)/n
 times = np.linspace(startt,endt,n)
 
@@ -56,6 +57,11 @@ def animate(t):
     line.set_color('r')
     return line,
 
-anim = FuncAnimation(fig,animate,init_func=None,frames = times, interval=10,blit=True,repeat=True, repeat_delay=0)
+anim = FuncAnimation(fig,animate,init_func=None,frames = times, interval=50,blit=True,repeat=True, repeat_delay=0)
+
+Writer = animation.writers['imagemagick']
+writer = Writer(fps=30, bitrate=1800)
+
+anim.save('unboundedwave.gif',writer=writer)
 
 plt.show()
