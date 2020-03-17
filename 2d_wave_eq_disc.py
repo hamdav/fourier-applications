@@ -14,29 +14,32 @@ n = 100
 dr = rho/n
 rs = np.linspace(0,rho,n)
 
-n = 100
+n = 74
 phis = np.linspace(0,2*np.pi,n)
 
-times = np.linspace(0,1,100)
+times = np.linspace(0,8,400)
 
 # Define the initial function f(r)
-f = lambda rs: np.exp(-rs)
+f = lambda rs: np.exp(-5*rs)* np.cos(np.pi*rs/(2*rho))
+#f = lambda rs: np.cos(np.pi*rs/(2*rho))
+#f = lambda rs: 1-rs
 
 # Define the square root of the lambda_ms
-m = 10
+m = 53
 sqls = spec.jn_zeros(0,m)/rho
 # Define the bms from f and the bessel function
-bms = np.trapz(f(rs)[:,np.newaxis] * spec.j0(np.outer(rs, sqls)),
-               axis=0, dx=dr)/ np.trapz(spec.j0(np.outer(rs, sqls))**2,
-               axis=0, dx=dr)
+bms = 2 * np.trapz(rs[:,np.newaxis] * f(rs)[:,np.newaxis] * spec.j0(np.outer(rs, sqls)),
+               axis=0, dx=dr)/ (rho**2 * spec.j1(spec.jn_zeros(0,m))**2)
+
 
 def ufcn(t):
     # Returns matrix of u with the element at n,m being u(r_n,phi_m,t)
-    Tms = np.cos(sqls * c*t)
-    Rms = spec.j0(np.outer(rs, sqls))
+    Tms = bms * np.cos(sqls * c*t)
+    Rms = spec.j0(np.outer(sqls,rs))
     Phis = np.ones(len(phis))
-    bmsRmsTms = bms[np.newaxis,:] * Tms[np.newaxis,:] * Rms
-    return np.outer(Phis,np.sum(bmsRmsTms, axis=1))
+    bmsRmsTms = Tms[:,np.newaxis]*Rms
+    #breakpoint()
+    return np.outer(Phis,np.sum(bmsRmsTms, axis=0))
 
 
 u0 = ufcn(0)
@@ -59,7 +62,7 @@ X, Y = R*np.cos(P), R*np.sin(P)
 surf = ax.plot_surface(X,Y,u0)
 
 # How much to rotate per frame
-dAngle = 0.05
+dAngle = 0.00
 
 def animate(i):
     t = times[i]
@@ -68,7 +71,7 @@ def animate(i):
     ax.clear()
     surf = ax.plot_surface(X,Y,us,cmap='plasma', norm=norm)
     ax.set_zlim([-limit,limit])
-    ax.view_init(elev=30., azim=angle)
+    ax.view_init(elev=20., azim=angle)
     return surf,
 
 anim = FuncAnimation(fig, animate, init_func=None, frames = len(times), interval=10, blit=False, repeat=True, repeat_delay=0)
