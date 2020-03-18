@@ -21,7 +21,7 @@ times = np.linspace(0,8,400)
 
 # Define the initial function f(r)
 f = lambda rs: np.exp(-5*rs)* np.cos(np.pi*rs/(2*rho))
-#f = lambda rs: np.cos(np.pi*rs/(2*rho))
+#f = lambda rs: np.cos(3*np.pi*rs/(2*rho))
 #f = lambda rs: 1-rs
 
 # Define the square root of the lambda_ms
@@ -62,14 +62,14 @@ X, Y = R*np.cos(P), R*np.sin(P)
 surf = ax.plot_surface(X,Y,u0)
 
 # How much to rotate per frame
-dAngle = 0.00
+dAngle = 1.00
 
 def animate(i):
     t = times[i]
     angle = dAngle*i
     us = ufcn(t)
     ax.clear()
-    surf = ax.plot_surface(X,Y,us,cmap='plasma', norm=norm)
+    surf = ax.plot_surface(X,Y,us,cmap='gnuplot2', norm=norm)
     ax.set_zlim([-limit,limit])
     ax.view_init(elev=20., azim=angle)
     return surf,
