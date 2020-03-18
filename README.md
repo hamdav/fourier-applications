@@ -79,3 +79,14 @@ u(x,y,t) = \sum_{n,m} a_{n,m} sin(π t \sqrt{n^2+m^2}) * sin(n π x) * sin(m π
 these a_{n,m}:s are the ones you need to calculate from the initial condition if you want to create an animation not already calculated by me.
 
 OBS! This creates a gif file as the animation is very slow and without a considerable drop in framerate cannot be played in realtime.
+
+## 2d_wave_eq_disc.py
+
+Creates an animation of the solution to the two dimensional wave equation on the disc [0,ρ]x[0,2π]. 
+Δu = u_{tt}
+u(ρ,φ,t) = 0
+u(r,φ,0) = f(r,φ)
+u_t(r,φ,0) = 0
+
+This one is done numerically as the coefficients that need to be calculated are not nice to do by hand. Simply define an f and you'll be good to go.If the number of frames are about 100, it takes a couple of seconds to run, choose a higher number than that and be prepared to wait for a while.  
+
