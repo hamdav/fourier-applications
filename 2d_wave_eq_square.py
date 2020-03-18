@@ -23,9 +23,9 @@ anms = np.zeros((len(ns),len(ms)))
     # to get initial condition f(x,y) = sin( pi j x) * sin( pi k y)
     # These can be added by setting multiple anms to constants
 #anms[4][4] = 1/16
-#anms[2][3] = 1/4
-#anms[1][1] = 1
-#anms[2][2] = 1/8
+anms[2][3] = 1/4
+anms[1][1] = 1
+anms[2][2] = 1/8
 
     # sin(pi x) * sin(4 pi x) * sin(pi y) * sin(4 pi y)
 #for n in ns:
@@ -36,17 +36,17 @@ anms = np.zeros((len(ns),len(ms)))
 
 
 # In case x and y are vectors, f must return a matrix
-f = lambda xs,ys: np.exp(-100 * np.add.outer((xs-0.5)**2, (ys-0.5)**2))
-integralxs = np.linspace(0,1,100)
-integralys = np.linspace(0,1,100)
-anmfunc = lambda n, m: np.trapz(np.trapz(
-    f(integralxs, integralys) * np.outer(np.sin(n*np.pi*integralys),
-                                         np.sin(m*np.pi*integralys)),
-    dx =0.01),dx=0.01)
+#f = lambda xs,ys: np.exp(-10 * np.add.outer((xs-0.5)**2, (ys-0.5)**2))
+#integralxs = np.linspace(0,1,100)
+#integralys = np.linspace(0,1,100)
+#anmfunc = lambda n, m: np.trapz(np.trapz(
+    #f(integralxs, integralys) * np.outer(np.sin(n*np.pi*integralys),
+                                         #np.sin(m*np.pi*integralys)),
+    #dx =0.01),dx=0.01)
 
-for n in ns:
-    for m in ms:
-        anms[n][m] = anmfunc(n,m)
+#for n in ns:
+    #for m in ms:
+        #anms[n][m] = anmfunc(n,m)
 
 
 def ufcn(t):
@@ -80,7 +80,7 @@ def animate(i):
     angle = dAngle*i
     us = ufcn(t)
     ax2.clear()
-    surf = ax2.plot_surface(X,Y,us,cmap='plasma', norm=norm)
+    surf = ax2.plot_surface(X,Y,us,cmap='gnuplot2', norm=norm)
     ax2.set_zlim([-limit,limit])
     ax2.view_init(elev=20., azim=i)
     return surf,
