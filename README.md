@@ -1,5 +1,13 @@
 # fourier-applications
 
+## Example gifs
+
+From solving the 2 dimensional wave equation on a disc
+![2ddisc](2dwave_on_disk.gif)
+
+From solving the 2 dimensional wave equation on a disc
+![2dsquare](2dwave_on_square.gif)
+
 ## wave_eq_on_R.py
 
 Creates an animation of the solution to the wave equation on the real line, 
